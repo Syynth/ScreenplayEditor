@@ -31,33 +31,51 @@ public class SceneEditor extends javax.swing.JFrame {
 
         jSplitPane1 = new javax.swing.JSplitPane();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTree2 = new javax.swing.JTree();
+        projectTree = new javax.swing.JTree();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextPane1 = new javax.swing.JTextPane();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        textPane = new javax.swing.JTextPane();
+        menuBar = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jSplitPane1.setDividerLocation(200);
 
-        jTree2.setEditable(true);
-        jScrollPane3.setViewportView(jTree2);
+        projectTree.setEditable(true);
+        jScrollPane3.setViewportView(projectTree);
 
         jSplitPane1.setLeftComponent(jScrollPane3);
 
-        jScrollPane1.setViewportView(jTextPane1);
+        jScrollPane1.setViewportView(textPane);
 
         jSplitPane1.setRightComponent(jScrollPane1);
 
         jMenu1.setText("File");
-        jMenuBar1.add(jMenu1);
+
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/newProject.png"))); // NOI18N
+        jMenuItem1.setText("New Project");
+        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem1ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem1);
+
+        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/newAct.png"))); // NOI18N
+        jMenuItem2.setText("New Act");
+        jMenu1.add(jMenuItem2);
+
+        menuBar.add(jMenu1);
 
         jMenu2.setText("Edit");
-        jMenuBar1.add(jMenu2);
+        menuBar.add(jMenu2);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(menuBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -72,6 +90,10 @@ public class SceneEditor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -101,11 +123,13 @@ public class SceneEditor extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JTextPane jTextPane1;
-    private javax.swing.JTree jTree2;
+    private javax.swing.JMenuBar menuBar;
+    private javax.swing.JTree projectTree;
+    private javax.swing.JTextPane textPane;
     // End of variables declaration//GEN-END:variables
 }
