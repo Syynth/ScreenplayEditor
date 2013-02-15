@@ -4,14 +4,12 @@
  */
 package com.status92.scene;
 
-import java.util.ArrayList;
-
 /**
  *
  * @author Ben
  */
-public class SceneVariant {
+public class Race extends Data {
     
-    ArrayList<Text> mContent;
+    
     
 }

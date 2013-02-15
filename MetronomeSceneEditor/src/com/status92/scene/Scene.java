@@ -4,10 +4,14 @@
  */
 package com.status92.scene;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Ben
  */
 public class Scene {
+    
+    ArrayList<SceneVariant> mScenes;
     
 }

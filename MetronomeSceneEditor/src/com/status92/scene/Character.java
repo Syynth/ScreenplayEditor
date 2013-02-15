@@ -8,6 +8,9 @@ package com.status92.scene;
  *
  * @author Ben
  */
-public class Character {
+public class Character extends Data {
+    
+    private boolean mImportant;
+    private Faction mFaction;
     
 }

@@ -4,10 +4,16 @@
  */
 package com.status92.scene;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Ben
  */
-public class Setting {
+public class Setting extends Data {
+    
+    
+    private String mLookAndFeel;
+    private ArrayList<Race> mRaces;
     
 }

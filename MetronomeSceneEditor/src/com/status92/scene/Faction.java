@@ -4,10 +4,15 @@
  */
 package com.status92.scene;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Ben
  */
-public class Faction {
+public class Faction extends Data {
+    
+    private String mGoal;
+    private ArrayList<Character> mMembers;
     
 }
