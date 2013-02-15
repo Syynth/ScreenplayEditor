@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+
+	<acts>
+		<act number="1" title="Act I">
+			<scene name="opening">
+				<variant name="canon">
+					<text type="heading">Opening: A wild west</text>
+					<text type="action">A wide sweeping view of The Southern Plains engulfs the view. A few lone men stand on a ridge on the horizon.</text>
+					<text type="name">Locke</text>
+					<text type="parenthetical">(Wistful)</text>
+					<text type="dialog">What a world this has become.</text>
+					<text type="Transition">(Fade to Black)<text>
+				</variant>
+			</scene>
+		</act>
+		<act number="2">
+		</act>
+	</acts>
+
+	<characters>
+		<character>
+			<name>Locke</name>
+			<description>An angry lonesome man.</description>
+			<type>main</main>
+			<affiliation>Rangers</affiliation>
+		</character>
+	</characters>
+
+	<groups>
+		<group>
+			<name>Rangers</name>
+			<description>A group of lawmen dedicated to tracking down criminals throughout the Empire</description>
+			<goal>Rid the land of all criminal activity.</goal>
+			<members>
+				<member>Locke</member>
+			</members>
+		</group>
+	</groups>
+
+	<races>
+		<race>
+			<name>Human</name>
+			<description>Normal people</description>
+		<race>
+	</races>
+
+	<settings>
+		<setting>
+			<name>The Southern Plains</name>
+			<description>A barren plain south of the largest city in The Empire</description>
+			<lookAndFeel>Very barren, no vegitation, and very little life whatsoever.</lookAndFeel>
+			<inhabitants>Human</inhabitants>
+		</setting>
+	</settings>
+</project>
