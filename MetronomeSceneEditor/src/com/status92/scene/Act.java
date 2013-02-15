@@ -4,10 +4,16 @@
  */
 package com.status92.scene;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Ben
  */
 public class Act {
+    
+    private ArrayList<Scene> mScenes;
+    private String mTitle;
+    private int mNumber;
     
 }
