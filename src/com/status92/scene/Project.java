@@ -12,6 +12,15 @@ import java.util.ArrayList;
  */
 public class Project {
     
+    public Project(String data) {
+        parseXMLProject(data);
+    }
+    
+    private boolean parseXMLProject(String xml) {
+        
+        return true;
+    }
+    
     private ArrayList<Act> mActs;
     private ArrayList<Character> mCharacters;
     private ArrayList<Faction> mFactions;

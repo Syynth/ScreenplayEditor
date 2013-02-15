@@ -4,6 +4,8 @@
  */
 package com.status92.scene;
 
+import javax.swing.JTree;
+import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
@@ -17,6 +19,8 @@ public class SceneEditor extends javax.swing.JFrame {
      * Creates new form SceneEditor
      */
     public SceneEditor() {
+        this.setLocationRelativeTo(null);
+        mProject = new Project("resources/testproject.xml");
         initComponents();
     }
 
@@ -29,84 +33,85 @@ public class SceneEditor extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuItem9 = new javax.swing.JMenuItem();
-        jMenu4 = new javax.swing.JMenu();
         splitPane = new javax.swing.JSplitPane();
-        jScrollPane3 = new javax.swing.JScrollPane();
+        leftScrollPane = new javax.swing.JScrollPane();
         projectTree = new javax.swing.JTree();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        rightScrollPane = new javax.swing.JScrollPane();
         textPane = new javax.swing.JTextPane();
         menuBar = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
+        menuFile = new javax.swing.JMenu();
+        menuNewProject = new javax.swing.JMenuItem();
+        menuNewAct = new javax.swing.JMenuItem();
+        fileSeperator1 = new javax.swing.JPopupMenu.Separator();
         menuOpenProject = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jSeparator1 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem3 = new javax.swing.JMenuItem();
         menuSaveProject = new javax.swing.JMenuItem();
         menuSaveProjectAs = new javax.swing.JMenuItem();
-        jSeparator3 = new javax.swing.JPopupMenu.Separator();
-        menuExportWordDoc = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jSeparator4 = new javax.swing.JPopupMenu.Separator();
+        fileSeperator2 = new javax.swing.JPopupMenu.Separator();
+        menuExport = new javax.swing.JMenu();
+        menuExportPlainText = new javax.swing.JMenuItem();
+        menuExportRichText = new javax.swing.JMenuItem();
+        menuExportWordDoc = new javax.swing.JMenuItem();
+        fileSeperator3 = new javax.swing.JPopupMenu.Separator();
         menuExit = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
+        menuEdit = new javax.swing.JMenu();
         menuCopy = new javax.swing.JMenuItem();
         menuCut = new javax.swing.JMenuItem();
         menuPaste = new javax.swing.JMenuItem();
-        jSeparator2 = new javax.swing.JPopupMenu.Separator();
+        editSeperator1 = new javax.swing.JPopupMenu.Separator();
         menuFind = new javax.swing.JMenuItem();
         menuReplace = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
-
-        jMenuItem9.setText("jMenuItem9");
-
-        jMenu4.setText("jMenu4");
+        menuFindUsages = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        splitPane.setDividerLocation(200);
+        splitPane.setBorder(null);
+        splitPane.setDividerLocation(120);
 
+        projectTree.setDoubleBuffered(true);
+        projectTree.setDragEnabled(true);
         projectTree.setEditable(true);
-        jScrollPane3.setViewportView(projectTree);
+        leftScrollPane.setViewportView(projectTree);
 
-        splitPane.setLeftComponent(jScrollPane3);
+        splitPane.setLeftComponent(leftScrollPane);
 
-        jScrollPane1.setViewportView(textPane);
+        textPane.setContentType("text/html"); // NOI18N
+        textPane.setToolTipText("");
+        textPane.setDoubleBuffered(true);
+        textPane.setDragEnabled(true);
+        rightScrollPane.setViewportView(textPane);
 
-        splitPane.setRightComponent(jScrollPane1);
+        splitPane.setRightComponent(rightScrollPane);
 
-        jMenu1.setText("File");
+        menuFile.setText("File");
 
-        menuOpenProject.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
-        menuOpenProject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/newProject.png"))); // NOI18N
-        menuOpenProject.setText("New Project");
+        menuNewProject.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
+        menuNewProject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/newProject.png"))); // NOI18N
+        menuNewProject.setText("New Project");
+        menuNewProject.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuNewProjectActionPerformed(evt);
+            }
+        });
+        menuFile.add(menuNewProject);
+
+        menuNewAct.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        menuNewAct.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/newAct.png"))); // NOI18N
+        menuNewAct.setText("New Act");
+        menuFile.add(menuNewAct);
+        menuFile.add(fileSeperator1);
+
+        menuOpenProject.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        menuOpenProject.setText("Open Project");
         menuOpenProject.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 menuOpenProjectActionPerformed(evt);
             }
         });
-        jMenu1.add(menuOpenProject);
-
-        jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/newAct.png"))); // NOI18N
-        jMenuItem2.setText("New Act");
-        jMenu1.add(jMenuItem2);
-        jMenu1.add(jSeparator1);
-
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem3.setText("Open Project");
-        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem3ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem3);
+        menuFile.add(menuOpenProject);
 
         menuSaveProject.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
         menuSaveProject.setText("Save Project");
-        jMenu1.add(menuSaveProject);
+        menuFile.add(menuSaveProject);
 
         menuSaveProjectAs.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         menuSaveProjectAs.setText("Save Project As..");
@@ -115,61 +120,61 @@ public class SceneEditor extends javax.swing.JFrame {
                 menuSaveProjectAsActionPerformed(evt);
             }
         });
-        jMenu1.add(menuSaveProjectAs);
-        jMenu1.add(jSeparator3);
+        menuFile.add(menuSaveProjectAs);
+        menuFile.add(fileSeperator2);
 
-        menuExportWordDoc.setText("Export Project to...");
+        menuExport.setText("Export Project to...");
 
-        jMenuItem6.setText("Plaintext (.txt)");
-        menuExportWordDoc.add(jMenuItem6);
+        menuExportPlainText.setText("Plaintext (.txt)");
+        menuExport.add(menuExportPlainText);
 
-        jMenuItem7.setText("Rich Text (.rtf)");
-        menuExportWordDoc.add(jMenuItem7);
+        menuExportRichText.setText("Rich Text (.rtf)");
+        menuExport.add(menuExportRichText);
 
-        jMenuItem8.setText("Word (.docx)");
-        jMenuItem8.addActionListener(new java.awt.event.ActionListener() {
+        menuExportWordDoc.setText("Word (.docx)");
+        menuExportWordDoc.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem8ActionPerformed(evt);
+                menuExportWordDocActionPerformed(evt);
             }
         });
-        menuExportWordDoc.add(jMenuItem8);
+        menuExport.add(menuExportWordDoc);
 
-        jMenu1.add(menuExportWordDoc);
-        jMenu1.add(jSeparator4);
+        menuFile.add(menuExport);
+        menuFile.add(fileSeperator3);
 
         menuExit.setText("Exit");
-        jMenu1.add(menuExit);
+        menuFile.add(menuExit);
 
-        menuBar.add(jMenu1);
+        menuBar.add(menuFile);
 
-        jMenu2.setText("Edit");
+        menuEdit.setText("Edit");
 
         menuCopy.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
         menuCopy.setText("Copy");
-        jMenu2.add(menuCopy);
+        menuEdit.add(menuCopy);
 
         menuCut.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_X, java.awt.event.InputEvent.CTRL_MASK));
         menuCut.setText("Cut");
-        jMenu2.add(menuCut);
+        menuEdit.add(menuCut);
 
         menuPaste.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_V, java.awt.event.InputEvent.CTRL_MASK));
         menuPaste.setText("Paste");
-        jMenu2.add(menuPaste);
-        jMenu2.add(jSeparator2);
+        menuEdit.add(menuPaste);
+        menuEdit.add(editSeperator1);
 
         menuFind.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.CTRL_MASK));
         menuFind.setText("Find Next");
-        jMenu2.add(menuFind);
+        menuEdit.add(menuFind);
 
         menuReplace.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
         menuReplace.setText("Replace");
-        jMenu2.add(menuReplace);
+        menuEdit.add(menuReplace);
 
-        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F7, java.awt.event.InputEvent.ALT_MASK));
-        jMenuItem1.setText("Find Usages");
-        jMenu2.add(jMenuItem1);
+        menuFindUsages.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F7, java.awt.event.InputEvent.ALT_MASK));
+        menuFindUsages.setText("Find Usages");
+        menuEdit.add(menuFindUsages);
 
-        menuBar.add(jMenu2);
+        menuBar.add(menuEdit);
 
         setJMenuBar(menuBar);
 
@@ -177,31 +182,31 @@ public class SceneEditor extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 866, Short.MAX_VALUE)
+            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 454, Short.MAX_VALUE)
+            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void menuNewProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewProjectActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_menuNewProjectActionPerformed
+
     private void menuOpenProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOpenProjectActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuOpenProjectActionPerformed
-
-    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void menuSaveProjectAsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSaveProjectAsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuSaveProjectAsActionPerformed
 
-    private void jMenuItem8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem8ActionPerformed
+    private void menuExportWordDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExportWordDocActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jMenuItem8ActionPerformed
+    }//GEN-LAST:event_menuExportWordDocActionPerformed
 
     /**
      * @param args the command line arguments
@@ -223,41 +228,41 @@ public class SceneEditor extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new SceneEditor().setVisible(true);
             }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JPopupMenu.Separator jSeparator1;
-    private javax.swing.JPopupMenu.Separator jSeparator2;
-    private javax.swing.JPopupMenu.Separator jSeparator3;
-    private javax.swing.JPopupMenu.Separator jSeparator4;
+    private javax.swing.JPopupMenu.Separator editSeperator1;
+    private javax.swing.JPopupMenu.Separator fileSeperator1;
+    private javax.swing.JPopupMenu.Separator fileSeperator2;
+    private javax.swing.JPopupMenu.Separator fileSeperator3;
+    private javax.swing.JScrollPane leftScrollPane;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem menuCopy;
     private javax.swing.JMenuItem menuCut;
+    private javax.swing.JMenu menuEdit;
     private javax.swing.JMenuItem menuExit;
-    private javax.swing.JMenu menuExportWordDoc;
+    private javax.swing.JMenu menuExport;
+    private javax.swing.JMenuItem menuExportPlainText;
+    private javax.swing.JMenuItem menuExportRichText;
+    private javax.swing.JMenuItem menuExportWordDoc;
+    private javax.swing.JMenu menuFile;
     private javax.swing.JMenuItem menuFind;
+    private javax.swing.JMenuItem menuFindUsages;
+    private javax.swing.JMenuItem menuNewAct;
+    private javax.swing.JMenuItem menuNewProject;
     private javax.swing.JMenuItem menuOpenProject;
     private javax.swing.JMenuItem menuPaste;
     private javax.swing.JMenuItem menuReplace;
     private javax.swing.JMenuItem menuSaveProject;
     private javax.swing.JMenuItem menuSaveProjectAs;
     private javax.swing.JTree projectTree;
+    private javax.swing.JScrollPane rightScrollPane;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JTextPane textPane;
     // End of variables declaration//GEN-END:variables
+    private Project mProject;
 }
