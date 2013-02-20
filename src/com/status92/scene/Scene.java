@@ -12,6 +12,17 @@ import java.util.ArrayList;
  */
 public class Scene {
     
-    ArrayList<SceneVariant> mScenes;
+    public Scene(String name) {
+        mName = name;
+        mVariants = new ArrayList<>();
+    }
+    
+    @Override
+    public String toString() {
+        return "{" + mName + ": " + mVariants + "}";
+    }
+    
+    String mName;
+    ArrayList<SceneVariant> mVariants;
     
 }

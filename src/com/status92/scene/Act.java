@@ -12,8 +12,18 @@ import java.util.ArrayList;
  */
 public class Act {
     
-    private ArrayList<Scene> mScenes;
-    private String mTitle;
-    private int mNumber;
+    public Act(String title) {
+        mScenes = new ArrayList<>();
+        mTitle = title;
+    }
+    
+    @Override
+    public String toString() {
+        return mTitle + " " + mScenes;
+    }
+    
+    ArrayList<Scene> mScenes;
+    String mTitle;
+    int mNumber;
     
 }

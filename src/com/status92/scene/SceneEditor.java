@@ -4,6 +4,10 @@
  */
 package com.status92.scene;
 
+import java.io.File;
+import java.net.MalformedURLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.UIManager;
@@ -20,7 +24,11 @@ public class SceneEditor extends javax.swing.JFrame {
      */
     public SceneEditor() {
         this.setLocationRelativeTo(null);
-        mProject = new Project("resources/testproject.xml");
+        try {
+            mProject = new Project(new File("src/resources/testproject.xml").toURI().toURL());
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(SceneEditor.class.getName()).log(Level.SEVERE, null, ex);
+        }
         initComponents();
     }
 

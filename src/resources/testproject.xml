@@ -10,11 +10,11 @@
 					<text type="name">Locke</text>
 					<text type="parenthetical">(Wistful)</text>
 					<text type="dialog">What a world this has become.</text>
-					<text type="Transition">(Fade to Black)<text>
+					<text type="Transition">(Fade to Black)</text>
 				</variant>
 			</scene>
 		</act>
-		<act number="2">
+		<act number="2" title="Act II">
 		</act>
 	</acts>
 
@@ -22,7 +22,7 @@
 		<character>
 			<name>Locke</name>
 			<description>An angry lonesome man.</description>
-			<type>main</main>
+			<type>main</type>
 			<affiliation>Rangers</affiliation>
 		</character>
 	</characters>
@@ -42,7 +42,7 @@
 		<race>
 			<name>Human</name>
 			<description>Normal people</description>
-		<race>
+		</race>
 	</races>
 
 	<settings>

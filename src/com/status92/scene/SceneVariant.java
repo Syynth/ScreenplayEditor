@@ -12,6 +12,17 @@ import java.util.ArrayList;
  */
 public class SceneVariant {
     
+    public SceneVariant(String name) {
+        mName = name;
+        mContent = new ArrayList<>();
+    }
+    
+    @Override
+    public String toString() {
+        return mName;
+    }
+    
+    String mName;
     ArrayList<Text> mContent;
     
 }
