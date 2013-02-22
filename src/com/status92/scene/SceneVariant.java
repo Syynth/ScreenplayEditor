@@ -19,7 +19,7 @@ public class SceneVariant {
     
     @Override
     public String toString() {
-        return mName;
+        return mName + mContent;
     }
     
     String mName;

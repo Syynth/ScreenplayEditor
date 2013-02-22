@@ -53,6 +53,12 @@ public class Project {
                     Element variant = (Element)k.next();
                     SceneVariant v = new SceneVariant(variant.attributeValue("name"));
                     s.mVariants.add(v);
+                    List texts = variant.selectNodes("text");
+                    for (Iterator l = texts.iterator(); l.hasNext();) {
+                        Element text = (Element)l.next();
+                        Text t = new Text(text.attributeValue("type"), text.getText());
+                        v.mContent.add(t);
+                    }
                 }
             }
         }
