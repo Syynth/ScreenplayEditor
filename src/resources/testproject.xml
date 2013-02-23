@@ -22,7 +22,7 @@
 		<character>
 			<name>Locke</name>
 			<description>An angry lonesome man.</description>
-			<type>main</type>
+			<mainCharacter>true</mainCharacter>
 			<affiliation>Rangers</affiliation>
 		</character>
 	</characters>

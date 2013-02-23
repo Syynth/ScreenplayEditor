@@ -10,7 +10,33 @@ package com.status92.scene;
  */
 public class Character extends Data {
     
-    private boolean mImportant;
+    public Character() {
+        this("", "", "", "");
+    }
+    
+    public Character(String name, String description) {
+        this(name, description, "false", "");
+    }
+    
+    public Character(String name, String description, String important, String faction) {
+        mName = name;
+        mDescription = description;
+        mImportant = Boolean.parseBoolean(important);
+        mFaction = Project.getCurrentProject().findFaction(faction);
+        if (mFaction == null) {
+            mFaction = new Faction(faction, "");
+        }
+    }
+    
+    public void changeFaction(Faction f) {
+        
+    }
+    
+    public void changeFaction(String s) {
+        
+    }
+    
+    boolean mImportant;
     private Faction mFaction;
     
 }

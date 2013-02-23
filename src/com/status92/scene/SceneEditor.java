@@ -44,6 +44,7 @@ public class SceneEditor extends javax.swing.JFrame {
         splitPane = new javax.swing.JSplitPane();
         leftScrollPane = new javax.swing.JScrollPane();
         projectTree = new javax.swing.JTree();
+        tabEditPane = new javax.swing.JTabbedPane();
         rightScrollPane = new javax.swing.JScrollPane();
         textPane = new javax.swing.JTextPane();
         menuBar = new javax.swing.JMenuBar();
@@ -88,7 +89,9 @@ public class SceneEditor extends javax.swing.JFrame {
         textPane.setDragEnabled(true);
         rightScrollPane.setViewportView(textPane);
 
-        splitPane.setRightComponent(rightScrollPane);
+        tabEditPane.addTab("Home", null, rightScrollPane, "");
+
+        splitPane.setRightComponent(tabEditPane);
 
         menuFile.setText("File");
 
@@ -190,11 +193,11 @@ public class SceneEditor extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 521, Short.MAX_VALUE)
+            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 862, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
+            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 492, Short.MAX_VALUE)
         );
 
         pack();
@@ -270,6 +273,7 @@ public class SceneEditor extends javax.swing.JFrame {
     private javax.swing.JTree projectTree;
     private javax.swing.JScrollPane rightScrollPane;
     private javax.swing.JSplitPane splitPane;
+    private javax.swing.JTabbedPane tabEditPane;
     private javax.swing.JTextPane textPane;
     // End of variables declaration//GEN-END:variables
     private Project mProject;
