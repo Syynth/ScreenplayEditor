@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project>
+<project name="Metronome">
 
 	<acts>
 		<act number="1" title="Act I">
-			<scene name="opening">
-				<variant name="canon">
+			<scene name="Opening">
+				<variant name="Canon">
 					<text type="heading">Opening: A wild west</text>
 					<text type="action">A wide sweeping view of The Southern Plains engulfs the view. A few lone men stand on a ridge on the horizon.</text>
 					<text type="name">Locke</text>
@@ -13,8 +13,13 @@
 					<text type="Transition">(Fade to Black)</text>
 				</variant>
 			</scene>
+			<scene name="Scene II">
+			</scene>
 		</act>
+
 		<act number="2" title="Act II">
+			<scene name="Scene Blah">
+			</scene>
 		</act>
 	</acts>
 

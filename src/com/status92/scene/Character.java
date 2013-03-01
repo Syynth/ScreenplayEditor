@@ -22,7 +22,7 @@ public class Character extends Data {
         mName = name;
         mDescription = description;
         mImportant = Boolean.parseBoolean(important);
-        mFaction = Project.getCurrentProject().findFaction(faction);
+        //mFaction = Project.getCurrentProject().findFaction(faction);
         if (mFaction == null) {
             mFaction = new Faction(faction, "");
         }

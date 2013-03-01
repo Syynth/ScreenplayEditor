@@ -8,10 +8,9 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JTree;
-import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.tree.DefaultMutableTreeNode;
 
 /**
  *
@@ -25,11 +24,50 @@ public class SceneEditor extends javax.swing.JFrame {
     public SceneEditor() {
         this.setLocationRelativeTo(null);
         try {
-            mProject = new Project(new File("src/resources/testproject.xml").toURI().toURL());
+            project = new Project(new File("src/resources/testproject.xml").toURI().toURL());
         } catch (MalformedURLException ex) {
             Logger.getLogger(SceneEditor.class.getName()).log(Level.SEVERE, null, ex);
         }
         initComponents();
+        initTree();
+        
+        
+    }
+    
+    public void initTree() {
+        actsNode = new DefaultMutableTreeNode("Acts");
+        charactersNode = new DefaultMutableTreeNode("Characters");
+        factionsNode = new DefaultMutableTreeNode("Factions");
+        racesNode = new DefaultMutableTreeNode("Races");
+        settingsNode = new DefaultMutableTreeNode("Settings");
+        projectRootNode.add(actsNode);
+        projectRootNode.add(charactersNode);
+        projectRootNode.add(factionsNode);
+        projectRootNode.add(racesNode);
+        projectRootNode.add(settingsNode);
+        
+        for (Act a : project.mActs) {
+            DefaultMutableTreeNode actNode = new DefaultMutableTreeNode(a.mTitle);
+            actsNode.add(actNode);
+            for (Scene s : a.mScenes) {
+                DefaultMutableTreeNode sceneNode = new DefaultMutableTreeNode(s.mName);
+                actNode.add(sceneNode);
+                for (SceneVariant v : s.mVariants) {
+                    DefaultMutableTreeNode variantNode = new DefaultMutableTreeNode(v.mName);
+                    sceneNode.add(variantNode);
+                }
+            }
+        }
+        
+        for (Character c : project.mCharacters) {
+            DefaultMutableTreeNode characterNode = new DefaultMutableTreeNode(c.mName);
+            charactersNode.add(characterNode);
+        }
+        
+        for (Faction f : project.mFactions) {
+            DefaultMutableTreeNode factionNode = new DefaultMutableTreeNode(f.mName);
+            factionsNode.add(factionNode);
+        }
     }
 
     /**
@@ -43,7 +81,8 @@ public class SceneEditor extends javax.swing.JFrame {
 
         splitPane = new javax.swing.JSplitPane();
         leftScrollPane = new javax.swing.JScrollPane();
-        projectTree = new javax.swing.JTree();
+        projectRootNode = new DefaultMutableTreeNode(project.mName);
+        projectTree = new javax.swing.JTree(projectRootNode);
         tabEditPane = new javax.swing.JTabbedPane();
         rightScrollPane = new javax.swing.JScrollPane();
         textPane = new javax.swing.JTextPane();
@@ -74,7 +113,7 @@ public class SceneEditor extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         splitPane.setBorder(null);
-        splitPane.setDividerLocation(120);
+        splitPane.setDividerLocation(200);
 
         projectTree.setDoubleBuffered(true);
         projectTree.setDragEnabled(true);
@@ -245,6 +284,12 @@ public class SceneEditor extends javax.swing.JFrame {
             }
         });
     }
+    
+    DefaultMutableTreeNode actsNode;
+    DefaultMutableTreeNode charactersNode;
+    DefaultMutableTreeNode factionsNode;
+    DefaultMutableTreeNode racesNode;
+    DefaultMutableTreeNode settingsNode;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPopupMenu.Separator editSeperator1;
     private javax.swing.JPopupMenu.Separator fileSeperator1;
@@ -270,11 +315,12 @@ public class SceneEditor extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuReplace;
     private javax.swing.JMenuItem menuSaveProject;
     private javax.swing.JMenuItem menuSaveProjectAs;
+    private Project project;
+    private DefaultMutableTreeNode projectRootNode;
     private javax.swing.JTree projectTree;
     private javax.swing.JScrollPane rightScrollPane;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JTabbedPane tabEditPane;
     private javax.swing.JTextPane textPane;
     // End of variables declaration//GEN-END:variables
-    private Project mProject;
 }

@@ -11,7 +11,6 @@ import java.util.List;
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
-import org.dom4j.Attribute;
 import org.dom4j.io.SAXReader;
 
 /**
@@ -25,12 +24,12 @@ public class Project {
     }
     
     public Project(URL projectLocation) {
-        mProject = this;
         mActs = new ArrayList<>();
         mCharacters = new ArrayList<>();
         mFactions = new ArrayList<>();
         mRaces = new ArrayList<>();
         mSettings = new ArrayList<>();
+        mName = "";
         try {
             SAXReader reader = new SAXReader();
             parseXMLProject(reader.read(projectLocation));
@@ -39,10 +38,12 @@ public class Project {
                     "Invalid Project File: " + projectLocation.getPath() + "!" +
                     "\n" + ex);
         }
+        mProject = this;
     }
     
     private boolean parseXMLProject(Document proj) {
         Element root = proj.getRootElement();
+        mName = root.attributeValue("name");
         List acts = root.selectNodes("/project/acts/act");
         for (Iterator i = acts.iterator(); i.hasNext();) {
             Element act = (Element)i.next(); // get the act element
@@ -73,11 +74,11 @@ public class Project {
             Element character = (Element)i.next();
             Element name = (Element)character.selectSingleNode("name");
             Element description = (Element)character.selectSingleNode("description");
-            Element type = (Element)character.selectSingleNode("type");
+            Element type = (Element)character.selectSingleNode("mainCharacter");
             Element affiliation = (Element)character.selectSingleNode("affiliation");
             mCharacters.add(new Character(name.getTextTrim(), description.getTextTrim(), type.getTextTrim(), affiliation.getTextTrim()));
         }
-        List factions = root.selectNodes("");
+        List factions = root.selectNodes("/project/factions/faction");
         for (Iterator i = factions.iterator(); i.hasNext();) {
             Element faction = (Element)i.next();
             Element name = (Element)faction.selectSingleNode("name");
@@ -151,6 +152,7 @@ public class Project {
     ArrayList<Faction> mFactions;
     ArrayList<Race> mRaces;
     ArrayList<Setting> mSettings;
+    String mName;
     
     static Project mProject;
 }
