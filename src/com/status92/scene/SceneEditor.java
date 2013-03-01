@@ -29,12 +29,17 @@ public class SceneEditor extends javax.swing.JFrame {
             Logger.getLogger(SceneEditor.class.getName()).log(Level.SEVERE, null, ex);
         }
         initComponents();
+        initProject();
         initTree();
-        
-        
     }
     
-    public void initTree() {
+    private void initProject() {
+        for (Character c : project.mCharacters) {
+            c.findFaction();
+        }
+    }
+    
+    private void initTree() {
         actsNode = new DefaultMutableTreeNode("Acts");
         charactersNode = new DefaultMutableTreeNode("Characters");
         factionsNode = new DefaultMutableTreeNode("Factions");
@@ -67,6 +72,11 @@ public class SceneEditor extends javax.swing.JFrame {
         for (Faction f : project.mFactions) {
             DefaultMutableTreeNode factionNode = new DefaultMutableTreeNode(f.mName);
             factionsNode.add(factionNode);
+        }
+        
+        for (Race r : project.mRaces) {
+            DefaultMutableTreeNode raceNode = new DefaultMutableTreeNode(r.mName);
+            racesNode.add(raceNode);
         }
     }
 

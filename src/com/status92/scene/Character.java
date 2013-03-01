@@ -22,21 +22,28 @@ public class Character extends Data {
         mName = name;
         mDescription = description;
         mImportant = Boolean.parseBoolean(important);
-        //mFaction = Project.getCurrentProject().findFaction(faction);
+        mFactionRef = faction;
+    }
+    
+    public void findFaction() {
+        mFaction = Project.getCurrentProject().findFaction(mFactionRef);
         if (mFaction == null) {
-            mFaction = new Faction(faction, "");
+            mFaction = new Faction(mFactionRef, "");
         }
     }
     
     public void changeFaction(Faction f) {
-        
+        mFaction = f;
+        mFactionRef = mFaction.mName;
     }
     
     public void changeFaction(String s) {
-        
+        mFactionRef = s;
+        findFaction();
     }
     
     boolean mImportant;
     private Faction mFaction;
+    private String mFactionRef;
     
 }

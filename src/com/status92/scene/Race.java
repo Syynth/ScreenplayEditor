@@ -10,6 +10,13 @@ package com.status92.scene;
  */
 public class Race extends Data {
     
+    public Race() {
+        this("", "");
+    }
     
+    public Race(String name, String description) {
+        mName = name;
+        mDescription = description;
+    }
     
 }

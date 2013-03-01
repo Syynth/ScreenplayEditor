@@ -78,6 +78,7 @@ public class Project {
             Element affiliation = (Element)character.selectSingleNode("affiliation");
             mCharacters.add(new Character(name.getTextTrim(), description.getTextTrim(), type.getTextTrim(), affiliation.getTextTrim()));
         }
+        
         List factions = root.selectNodes("/project/factions/faction");
         for (Iterator i = factions.iterator(); i.hasNext();) {
             Element faction = (Element)i.next();
@@ -96,6 +97,15 @@ public class Project {
             }
             mFactions.add(new Faction(name.getTextTrim(), description.getTextTrim(), goal.getTextTrim(), mems));
         }
+        
+        List races = root.selectNodes("/project/races/race");
+        for (Iterator i = races.iterator(); i.hasNext();) {
+            Element race = (Element)i.next();
+            Element name = (Element)race.selectSingleNode("name");
+            Element description = (Element)race.selectSingleNode("description");
+            mRaces.add(new Race(name.getTextTrim(), description.getTextTrim()));
+        }
+        
         System.out.println(mActs);
         return true;
     }

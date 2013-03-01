@@ -32,16 +32,16 @@
 		</character>
 	</characters>
 
-	<groups>
-		<group>
+	<factions>
+		<faction>
 			<name>Rangers</name>
 			<description>A group of lawmen dedicated to tracking down criminals throughout the Empire</description>
 			<goal>Rid the land of all criminal activity.</goal>
 			<members>
 				<member>Locke</member>
 			</members>
-		</group>
-	</groups>
+		</faction>
+	</factions>
 
 	<races>
 		<race>
