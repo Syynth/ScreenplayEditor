@@ -38,7 +38,6 @@ public class SceneEditor extends javax.swing.JFrame {
             c.findFaction();
         }
     }
-    
     private void initTree() {
         actsNode = new DefaultMutableTreeNode("Acts");
         charactersNode = new DefaultMutableTreeNode("Characters");
@@ -144,6 +143,7 @@ public class SceneEditor extends javax.swing.JFrame {
         tabEditPane.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         textPane.setContentType("text/rtf"); // NOI18N
+        textPane.setFont(new java.awt.Font("Consolas", 0, 11)); // NOI18N
         textPane.setDoubleBuffered(true);
         textPane.setDragEnabled(true);
         jScrollPane1.setViewportView(textPane);
@@ -153,6 +153,11 @@ public class SceneEditor extends javax.swing.JFrame {
         splitPane.setRightComponent(tabEditPane);
 
         menuFile.setText("File");
+        menuFile.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuFileActionPerformed(evt);
+            }
+        });
 
         menuNewProject.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.CTRL_MASK));
         menuNewProject.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/newProject.png"))); // NOI18N
@@ -273,6 +278,9 @@ public class SceneEditor extends javax.swing.JFrame {
     private void menuExportWordDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExportWordDocActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuExportWordDocActionPerformed
+    private void menuFileActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuFileActionPerformed
+        //loadProject();
+    }//GEN-LAST:event_menuFileActionPerformed
 
     /**
      * @param args the command line arguments
