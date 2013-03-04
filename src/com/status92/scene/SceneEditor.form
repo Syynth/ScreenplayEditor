@@ -226,7 +226,7 @@
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JTree(projectRootNode)"/>
                 <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="projectRootNode = new DefaultMutableTreeNode(project.mName);"/>
-                <AuxValue name="JavaCodeGenerator_DeclarationPre" type="java.lang.String" value="private Project project;&#xa;private DefaultMutableTreeNode projectRootNode;"/>
+                <AuxValue name="JavaCodeGenerator_DeclarationPre" type="java.lang.String" value="private DefaultMutableTreeNode actsNode;&#xa;private DefaultMutableTreeNode charactersNode;&#xa;private DefaultMutableTreeNode factionsNode;&#xa;private DefaultMutableTreeNode racesNode;&#xa;private DefaultMutableTreeNode settingsNode;&#xa;private Project project;&#xa;private DefaultMutableTreeNode projectRootNode;"/>
                 <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="SceneEditor_projectTree"/>
               </AuxValues>
             </Component>

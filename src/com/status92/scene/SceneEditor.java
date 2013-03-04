@@ -261,19 +261,15 @@ public class SceneEditor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
     private void menuNewProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuNewProjectActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuNewProjectActionPerformed
-
     private void menuOpenProjectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuOpenProjectActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuOpenProjectActionPerformed
-
     private void menuSaveProjectAsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuSaveProjectAsActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuSaveProjectAsActionPerformed
-
     private void menuExportWordDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuExportWordDocActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_menuExportWordDocActionPerformed
@@ -305,11 +301,6 @@ public class SceneEditor extends javax.swing.JFrame {
         });
     }
     
-    DefaultMutableTreeNode actsNode;
-    DefaultMutableTreeNode charactersNode;
-    DefaultMutableTreeNode factionsNode;
-    DefaultMutableTreeNode racesNode;
-    DefaultMutableTreeNode settingsNode;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPopupMenu.Separator editSeperator1;
     private javax.swing.JPopupMenu.Separator fileSeperator1;
@@ -336,6 +327,11 @@ public class SceneEditor extends javax.swing.JFrame {
     private javax.swing.JMenuItem menuReplace;
     private javax.swing.JMenuItem menuSaveProject;
     private javax.swing.JMenuItem menuSaveProjectAs;
+    private DefaultMutableTreeNode actsNode;
+    private DefaultMutableTreeNode charactersNode;
+    private DefaultMutableTreeNode factionsNode;
+    private DefaultMutableTreeNode racesNode;
+    private DefaultMutableTreeNode settingsNode;
     private Project project;
     private DefaultMutableTreeNode projectRootNode;
     private javax.swing.JTree projectTree;
