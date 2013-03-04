@@ -67,6 +67,7 @@ public class SceneEditor extends javax.swing.JFrame {
         for (Character c : project.mCharacters) {
             DefaultMutableTreeNode characterNode = new DefaultMutableTreeNode(c.mName);
             charactersNode.add(characterNode);
+            tabEditPane.addTab(c.mName, new CharacterForm(c));
         }
         for (Faction f : project.mFactions) {
             DefaultMutableTreeNode factionNode = new DefaultMutableTreeNode(f.mName);
@@ -76,6 +77,7 @@ public class SceneEditor extends javax.swing.JFrame {
         for (Race r : project.mRaces) {
             DefaultMutableTreeNode raceNode = new DefaultMutableTreeNode(r.mName);
             racesNode.add(raceNode);
+            tabEditPane.addTab(r.mName, new RaceForm(r));
         }
         for (Setting s : project.mSettings) {
             DefaultMutableTreeNode settingNode = new DefaultMutableTreeNode(s.mName);

@@ -8,20 +8,19 @@ package com.status92.scene;
  *
  * @author bcochrane
  */
-public class CharacterForm extends javax.swing.JPanel {
+public class RaceForm extends javax.swing.JPanel {
 
     /**
-     * Creates new form CharacterForm
+     * Creates new form RaceForm
      */
-    public CharacterForm() {
+    public RaceForm() {
         initComponents();
     }
     
-    public CharacterForm(Character c) {
+    public RaceForm(Race r) {
         this();
-        nameField.setText(c.mName);
-        descriptionField.setText(c.mDescription);
-        importanceCheckbox.setSelected(c.mImportant);
+        nameField.setText(r.mName);
+        descriptionField.setText(r.mDescription);
     }
 
     /**
@@ -38,17 +37,8 @@ public class CharacterForm extends javax.swing.JPanel {
         descriptionLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         descriptionField = new javax.swing.JTextArea();
-        importanceCheckbox = new javax.swing.JCheckBox();
-        factionLabel = new javax.swing.JLabel();
-        factionField = new javax.swing.JTextField();
 
         nameLabel.setText("Name:");
-
-        nameField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nameFieldActionPerformed(evt);
-            }
-        });
 
         descriptionLabel.setText("Description:");
 
@@ -57,10 +47,6 @@ public class CharacterForm extends javax.swing.JPanel {
         descriptionField.setRows(5);
         jScrollPane1.setViewportView(descriptionField);
 
-        importanceCheckbox.setText("Main Character");
-
-        factionLabel.setText("Faction:");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -68,51 +54,31 @@ public class CharacterForm extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(nameLabel)
                     .addComponent(descriptionLabel)
-                    .addComponent(factionLabel))
+                    .addComponent(nameLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(factionField)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(importanceCheckbox))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addComponent(nameField))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(nameLabel)
                     .addComponent(nameField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(descriptionLabel)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(descriptionLabel)
                     .addComponent(jScrollPane1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(importanceCheckbox)
-                    .addComponent(factionLabel)
-                    .addComponent(factionField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void nameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nameFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_nameFieldActionPerformed
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea descriptionField;
     private javax.swing.JLabel descriptionLabel;
-    private javax.swing.JTextField factionField;
-    private javax.swing.JLabel factionLabel;
-    private javax.swing.JCheckBox importanceCheckbox;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField nameField;
     private javax.swing.JLabel nameLabel;
