@@ -83,6 +83,10 @@ public class SceneEditor extends javax.swing.JFrame {
             DefaultMutableTreeNode settingNode = new DefaultMutableTreeNode(s.mName);
             settingsNode.add(settingNode);
         }
+        
+        for (int i = 0; i < projectTree.getRowCount(); ++i) {
+            projectTree.expandRow(i);
+        }
     }
 
     /**
@@ -99,8 +103,8 @@ public class SceneEditor extends javax.swing.JFrame {
         projectRootNode = new DefaultMutableTreeNode(project.mName);
         projectTree = new javax.swing.JTree(projectRootNode);
         tabEditPane = new javax.swing.JTabbedPane();
-        rightScrollPane = new javax.swing.JScrollPane();
-        textPane = new javax.swing.JTextPane();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        textPane = new javax.swing.JEditorPane();
         menuBar = new javax.swing.JMenuBar();
         menuFile = new javax.swing.JMenu();
         menuNewProject = new javax.swing.JMenuItem();
@@ -137,13 +141,11 @@ public class SceneEditor extends javax.swing.JFrame {
 
         splitPane.setLeftComponent(leftScrollPane);
 
-        textPane.setContentType("text/html"); // NOI18N
-        textPane.setToolTipText("");
-        textPane.setDoubleBuffered(true);
-        textPane.setDragEnabled(true);
-        rightScrollPane.setViewportView(textPane);
+        tabEditPane.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        tabEditPane.addTab("Home", null, rightScrollPane, "");
+        jScrollPane1.setViewportView(textPane);
+
+        tabEditPane.addTab("Home", jScrollPane1);
 
         splitPane.setRightComponent(tabEditPane);
 
@@ -247,7 +249,7 @@ public class SceneEditor extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 862, Short.MAX_VALUE)
+            .addComponent(splitPane)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -310,6 +312,7 @@ public class SceneEditor extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator fileSeperator1;
     private javax.swing.JPopupMenu.Separator fileSeperator2;
     private javax.swing.JPopupMenu.Separator fileSeperator3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane leftScrollPane;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem menuCopy;
@@ -333,9 +336,8 @@ public class SceneEditor extends javax.swing.JFrame {
     private Project project;
     private DefaultMutableTreeNode projectRootNode;
     private javax.swing.JTree projectTree;
-    private javax.swing.JScrollPane rightScrollPane;
     private javax.swing.JSplitPane splitPane;
     private javax.swing.JTabbedPane tabEditPane;
-    private javax.swing.JTextPane textPane;
+    private javax.swing.JEditorPane textPane;
     // End of variables declaration//GEN-END:variables
 }

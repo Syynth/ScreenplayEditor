@@ -43,7 +43,7 @@ public class Character extends Data {
     }
     
     boolean mImportant;
-    private Faction mFaction;
-    private String mFactionRef;
+    Faction mFaction;
+    String mFactionRef;
     
 }
