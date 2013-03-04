@@ -12,8 +12,21 @@ import java.util.ArrayList;
  */
 public class Setting extends Data {
     
+    public Setting() {
+        this("", "", "", "");
+    }
     
-    private String mLookAndFeel;
-    private ArrayList<Race> mRaces;
+    public Setting(String name, String description, String lookAndFeel, String race) {
+        mRaces = new ArrayList<>();
+        mRaceRefs = new ArrayList<>();
+        mName = name;
+        mDescription = description;
+        mLookAndFeel = lookAndFeel;
+        mRaceRefs.add(race);
+    }
+    
+    String mLookAndFeel;
+    ArrayList<Race> mRaces;
+    ArrayList<String> mRaceRefs;
     
 }

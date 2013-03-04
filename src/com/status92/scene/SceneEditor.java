@@ -78,6 +78,11 @@ public class SceneEditor extends javax.swing.JFrame {
             DefaultMutableTreeNode raceNode = new DefaultMutableTreeNode(r.mName);
             racesNode.add(raceNode);
         }
+        
+        for (Setting s : project.mSettings) {
+            DefaultMutableTreeNode settingNode = new DefaultMutableTreeNode(s.mName);
+            settingsNode.add(settingNode);
+        }
     }
 
     /**

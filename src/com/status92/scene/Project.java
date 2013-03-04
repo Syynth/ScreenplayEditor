@@ -106,6 +106,16 @@ public class Project {
             mRaces.add(new Race(name.getTextTrim(), description.getTextTrim()));
         }
         
+        List settings = root.selectNodes("/project/settings/setting");
+        for (Iterator i = settings.iterator(); i.hasNext();) {
+            Element setting = (Element)i.next();
+            Element name = (Element)setting.selectSingleNode("name");
+            Element description = (Element)setting.selectSingleNode("description");
+            Element lookAndFeel = (Element)setting.selectSingleNode("lookAndFeel");
+            Element inhabitants = (Element)setting.selectSingleNode("inhabitants");
+            mSettings.add(new Setting(name.getTextTrim(), description.getTextTrim(), lookAndFeel.getTextTrim(), inhabitants.getTextTrim()));
+        }
+        
         System.out.println(mActs);
         return true;
     }
