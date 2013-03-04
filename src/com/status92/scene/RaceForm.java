@@ -44,6 +44,7 @@ public class RaceForm extends javax.swing.JPanel {
 
         descriptionField.setColumns(20);
         descriptionField.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
+        descriptionField.setLineWrap(true);
         descriptionField.setRows(5);
         jScrollPane1.setViewportView(descriptionField);
 

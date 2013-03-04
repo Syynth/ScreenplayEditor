@@ -82,6 +82,7 @@ public class SceneEditor extends javax.swing.JFrame {
         for (Setting s : project.mSettings) {
             DefaultMutableTreeNode settingNode = new DefaultMutableTreeNode(s.mName);
             settingsNode.add(settingNode);
+            tabEditPane.addTab(s.mName, new SettingForm(s));
         }
         for (int i = 0; i < projectTree.getRowCount(); ++i) {
             projectTree.expandRow(i);
