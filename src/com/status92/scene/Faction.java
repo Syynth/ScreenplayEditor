@@ -27,7 +27,7 @@ public class Faction extends Data {
         mMembers = members;
     }
     
-    private String mGoal;
-    private ArrayList<Character> mMembers;
+    String mGoal;
+    ArrayList<Character> mMembers;
     
 }

@@ -68,22 +68,19 @@ public class SceneEditor extends javax.swing.JFrame {
             DefaultMutableTreeNode characterNode = new DefaultMutableTreeNode(c.mName);
             charactersNode.add(characterNode);
         }
-        
         for (Faction f : project.mFactions) {
             DefaultMutableTreeNode factionNode = new DefaultMutableTreeNode(f.mName);
             factionsNode.add(factionNode);
+            tabEditPane.addTab(f.mName, new FactionForm(f));
         }
-        
         for (Race r : project.mRaces) {
             DefaultMutableTreeNode raceNode = new DefaultMutableTreeNode(r.mName);
             racesNode.add(raceNode);
         }
-        
         for (Setting s : project.mSettings) {
             DefaultMutableTreeNode settingNode = new DefaultMutableTreeNode(s.mName);
             settingsNode.add(settingNode);
         }
-        
         for (int i = 0; i < projectTree.getRowCount(); ++i) {
             projectTree.expandRow(i);
         }
@@ -143,6 +140,9 @@ public class SceneEditor extends javax.swing.JFrame {
 
         tabEditPane.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
+        textPane.setContentType("text/rtf"); // NOI18N
+        textPane.setDoubleBuffered(true);
+        textPane.setDragEnabled(true);
         jScrollPane1.setViewportView(textPane);
 
         tabEditPane.addTab("Home", jScrollPane1);
@@ -249,7 +249,7 @@ public class SceneEditor extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(splitPane)
+            .addComponent(splitPane, javax.swing.GroupLayout.DEFAULT_SIZE, 862, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
